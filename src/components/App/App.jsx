@@ -38,7 +38,7 @@ function App() {
     <div className='App'>
     
     <Header />
-
+    <h1>WHAT'S ON THE MENU?</h1>
     <PizzaList pizzaArray={pizzaArray} />
 
     </div>
