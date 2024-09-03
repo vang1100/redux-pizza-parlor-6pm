@@ -12,6 +12,8 @@ function PizzaItem({pizza}){
                 <p>{pizza.description}</p> 
                 <p>${pizza.price}</p>
                 <p><img src={pizza.image_path}/></p>
+                <button>REMOVE</button>
+                <button>ADD</button>
              </ul>
         </>
     )
