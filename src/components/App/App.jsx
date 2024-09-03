@@ -3,12 +3,17 @@ import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from '../Header/Header';
+import PizzaList from '../PizzaList/PizzaList';
 
 function App() {
 
   // variables
 
   const [pizzaArray, setPizzaArray] = useState([]);
+  const [pizzaName, setPizzaName] = useState('');
+  const [pizzaDescription, setPizzaDescription] = useState('');
+  const [pizzaPrice, setPizzaPrice] = useState('');
+  const [pizzaImage, setPizzaImage] = useState('');
 
   // useEffect
   useEffect (() => {
@@ -33,7 +38,9 @@ function App() {
     <div className='App'>
     
     <Header />
-  
+
+    <PizzaList pizzaArray={pizzaArray} />
+
     </div>
   );
 }
