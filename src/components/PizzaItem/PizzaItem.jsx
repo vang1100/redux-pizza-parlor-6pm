@@ -7,7 +7,12 @@ function PizzaItem({pizza}){
      
     return (
         <>
-    {pizza.name}
+            <ul>
+                <h2>{pizza.name}</h2> 
+                <p>{pizza.description}</p> 
+                <p>${pizza.price}</p>
+                <p><img src={pizza.image_path}/></p>
+             </ul>
         </>
     )
 }
