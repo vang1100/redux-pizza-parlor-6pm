@@ -50,6 +50,26 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.post('/', (req, res) => {
+    const { customer_name, street_address, city, zip } = req.body;
+
+    const sqlText = `
+        INSERT INTO "orders" ("customer_name", "street_address", "city", "zip")
+        VALUES ($1, $2, $3, $4)
+    `;
+
+    const sqlValues = [customer_name, street_address, city, zip];
+
+    pool.query(sqlText, sqlValues)
+        .then((result) => {
+            res.sendStatus(201); // Successfully created
+        })
+        .catch((error) => {
+            console.log(`Error in POST / making DB query ${sqlText}`, error);
+            res.sendStatus(500); // Internal Server Error
+        });
+});
+
 // DELETE an order
 router.delete('/:id', (req, res) => {
     pool.query('DELETE FROM "orders" WHERE id=$1', [req.params.id]).then((result) => {
@@ -59,5 +79,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(500);
     })
 });
+
+
 
 module.exports = router;
